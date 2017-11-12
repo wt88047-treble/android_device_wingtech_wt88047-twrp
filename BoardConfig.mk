@@ -75,3 +75,7 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Asian region languages
 TW_EXTRA_LANGUAGES := true
+
+# Init properties
+TARGET_INIT_VENDOR_LIB := libinit_wt88047
+TARGET_RECOVERY_DEVICE_MODULES := libinit_wt88047
