@@ -7,6 +7,16 @@ on init
     chmod 0664 /dev/ion
     chown system system /dev/ion
 
+on property:ro.crypto.state=encrypted
+    start qseecomd
+
+service qseecomd /sbin/qseecomd
+    oneshot
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
 on late-init
     # Remove a file to wake up anything waiting for firmware.
     trigger firmware_mounts_complete
@@ -68,16 +78,6 @@ on boot
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
     setprop recovery.perf.mode 0
-
-service qseecomd /sbin/qseecomd
-    class core
-    user root
-    group root system drmrpc
-    seclabel u:r:recovery:s0
-    disabled
-
-on property:ro.crypto.state=encrypted
-    start qseecomd
 
 on property:recovery.perf.mode=1
     write /sys/devices/system/cpu/cpu2/online 1
