@@ -14,6 +14,7 @@
 /modem_st2       emmc    /dev/block/bootdevice/by-name/modemst2       flags=backup=1;subpartitionof=/modem_st1
 
 /system          ext4    /dev/block/bootdevice/by-name/system         flags=fsflags="barrier=1"
+/vendor          ext4    /dev/block/bootdevice/by-name/vendor         flags=fsflags="barrier=1"
 /data            ext4    /dev/block/bootdevice/by-name/userdata       flags=encryptable=footer;length=-16384;fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
 /cache           ext4    /dev/block/bootdevice/by-name/cache          flags=fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
 /persist         ext4    /dev/block/bootdevice/by-name/persist        flags=backup=1;display=Persist;fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
