@@ -17,10 +17,10 @@
 DEVICE_PATH := device/wingtech/wt88047
 
 # Architecture
-TARGET_BOARD_SUFFIX := _32
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
+TARGET_BOARD_SUFFIX := _64
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
@@ -35,13 +35,7 @@ BOARD_MKBOOTIMG_ARGS :=  --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
-# Kernel
-#BOARD_DTBTOOL_ARGS := -2
-#BOARD_KERNEL_IMAGE_NAME := zImage
-#BOARD_KERNEL_SEPARATED_DT := true
-#TARGET_KERNEL_SOURCE := kernel/wingtech/msm8916
-#TARGET_KERNEL_CONFIG := excalibur_defconfig
-
+# kernel
 BOARD_KERNEL_CMDLINE += \
     sched_enable_hmp=1 \
     phy-msm-usb.floated_charger_enable=1 \
