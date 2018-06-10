@@ -33,7 +33,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS :=  --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/Image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 
 # kernel
 BOARD_KERNEL_CMDLINE += \
