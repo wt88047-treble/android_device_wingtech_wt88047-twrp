@@ -42,6 +42,14 @@
 #include "log.h"
 #include "util.h"
 
+static bool check_variant(void)
+{
+	struct sysinfo info;
+	sysinfo(&info);
+	bool result = info.totalram > 1024ull * 1024 * 1024;
+	return result;
+}
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -137,5 +145,12 @@ void vendor_load_properties()
         property_override("ro.product.model", "2014811");
         property_override("ro.product.name", "2014811");
         property_set("ro.telephony.default_network", "9,1");
+    }
+    // Check whether is prime model for setting up vendor
+    if (check_variant()) {
+	    property_set("ro.model.prime","1");
+    }
+    else {
+	    property_set("ro.model.prime","0");
     }
 }
